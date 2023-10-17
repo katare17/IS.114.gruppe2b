@@ -1,4 +1,14 @@
 use context essentials2021
+
+#Gruppe 2B: 
+#Christian Tudor Ågedal
+#Espen Raugstad
+#Hashmatullah Botoon
+#Hassan Saad Jawad Al-Musawi
+#Katarina Kristiansen Egebakken
+#Natasha Tokerud
+
+
 var stick = circle(5, "solid", "black")
 var ringOne = circle(25, "solid", "orange")
 var ringTwo = circle(20, "solid", "blue")
