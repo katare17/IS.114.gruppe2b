@@ -16,10 +16,10 @@ end
 
 
 # Definisjon av variablene som inneholder informasjon om de ulike ringene
-r1 = ring(circle(30, "solid", color(255, 140,0,1)), 1, "r1", "l")
-r2 = ring(circle(25, "solid", color(0, 0, 255, 1)), 2, "r2", "l")
-r3 = ring(circle(20, "solid", color(0, 255, 0, 1)), 3, "r3", "l")
-r4 = ring(circle(15, "solid", color(255, 0, 0, 1)), 4, "r4", "l")
+r4 = ring(circle(30, "solid", color(255, 140,0,1)), 1, "r4", "l")
+r3 = ring(circle(25, "solid", color(0, 0, 255, 1)), 2, "r3", "l")
+r2 = ring(circle(20, "solid", color(0, 255, 0, 1)), 3, "r2", "l")
+r1 = ring(circle(15, "solid", color(255, 0, 0, 1)), 4, "r1", "l")
 
 # Pinnene
 stick = ring(circle(5, "solid", snusboks), 0, "stick", "l")
@@ -43,21 +43,21 @@ end
 Rules = table: How-To :: String, CodeNames :: String
   row: 
     "To play this game, you need to write some code.", 
-    "Orange disc = r1"
+    "Orange disc = r4"
   row: 
     "To move a disc, you must write:", 
-    "Blue disc = r2"
+    "Blue disc = r3"
   row: 
     "move([discName], [positionName])", 
-    "Green disc = r3"
+    "Green disc = r2"
   row: 
     "For example, if you want to move the red disc,",
-    "Red disc = r4"
+    "Red disc = r1"
   row:
     "to the right stick. You should write:",
     "Left stick = left"
   row: 
-    "move(r4, right)",
+    "move(r1, right)",
     "Middle stick = middle"
   row: 
     "You cannot place a disc on top of a smaller disc",
@@ -95,13 +95,13 @@ fun draw-board():
   put-image(stick.drawing, left, heightPosition,
         
 #Spesifikt for state
-        put-image(r4.drawing, 
+        put-image(r1.drawing, 
           positions.get(0), heightPosition,
-          put-image(r3.drawing, 
+          put-image(r2.drawing, 
             positions.get(1), heightPosition,
-            put-image(r2.drawing, 
+            put-image(r3.drawing, 
               positions.get(2), heightPosition,
-              put-image(r1.drawing, 
+              put-image(r4.drawing, 
                 positions.get(3), heightPosition,
                 
 #Felles for alle bilder
@@ -111,20 +111,19 @@ end
 
 ######################################### MOVE ##########################################
 fun move(chosenRing, newPosition):
-  isLegal = true 
-  if chosenRing.name == "r4" block:
+  if chosenRing.name == "r1" block:
     positions := positions.set(0, newPosition)
     draw-board()
   else: 
-    if chosenRing.name == "r3" block:
+    if chosenRing.name == "r2" block:
     positions := positions.set(1, newPosition)
     draw-board()
     else: 
-      if chosenRing.name == "r2" block:
+      if chosenRing.name == "r3" block:
         positions := positions.set(2, newPosition)
         draw-board()
       else: 
-        if chosenRing.name == "r1" block:
+        if chosenRing.name == "r4" block:
           positions := positions.set(3, newPosition)
           draw-board()
         else:
