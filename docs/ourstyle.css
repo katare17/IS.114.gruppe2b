@@ -1,0 +1,27 @@
+#intro {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color:black; 
+    background-color: bisque;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+}
+
+p {
+    font-weight: 600;
+}
+
+.felles {
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 600;
+    background-color: beige;
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.navigering {
+ color:black;
+ background-color: #e7f274;   
+}
