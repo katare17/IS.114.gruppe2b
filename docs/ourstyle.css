@@ -3,6 +3,8 @@
     width: 80%;
     max-width: 500px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .active{
@@ -39,4 +41,12 @@ a {
 body {
     background-color: #242526;
     color: white;
+}
+
+#katarina-bilde {
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 20px; 
+    width: 80%;
+    justify-self: center;
 }
