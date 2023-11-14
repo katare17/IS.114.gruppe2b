@@ -35,3 +35,8 @@ a {
 .menu-list>li {
     padding: 10px;
 }
+
+body {
+    background-color: #242526;
+    color: white;
+}
