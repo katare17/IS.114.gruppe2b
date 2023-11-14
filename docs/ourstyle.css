@@ -1,27 +1,37 @@
-#intro {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    color:black; 
-    background-color: bisque;
-    padding: 20px;
-    width: 30%;
-    margin: 10px;
+.vanlig {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-p {
-    font-weight: 600;
+.active{
+    text-decoration: underline;
 }
 
-.felles {
-    font-family:'Times New Roman', Times, serif;
-    font-weight: 600;
-    background-color: beige;
-    color: black;
-    padding: 20px;
-    margin: 20px;
-}
-
-.navigering {
+.menu {
  color:black;
- background-color: #e7f274;   
+ background-color: #3f705e;   
+ overflow: visible;
+ min-width: 600px;
+ margin: 0 auto;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.pictures {
+    margin: 50px 10px;
+}
+
+.menu-list {
+    list-style-type: none;
+    display: flex;
+    padding: 10px;
+}
+
+.menu-list>li {
+    padding: 10px;
 }
