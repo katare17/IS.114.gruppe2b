@@ -8,7 +8,7 @@
 | Hassan       | https://github.com/Hassanmufc/Oplig-3-NR1
 | Katarina     | https://github.com/katare17/IS.114.personlig
 | Kornelius    | https://github.com/korneliusbo/korneliusoblig3 
-| Natasha      | https://github.com/Kreline1993/IND-IS-114
+| Natasha      | https://github.com/Kreline1993/natasha-IS-114-Indiv
 
 
 <br>
@@ -19,3 +19,4 @@
 | Prosjektoblig 03      | 14.09.2023|
 | Progoblig 01          | 23.10.2023|
 | Progoblig 02          | 06.11.2023|
+| Progoblig 03          | 22.11.2023|
