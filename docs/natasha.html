@@ -19,22 +19,100 @@
           <li><a class="active" href="natasha.html">Natasha</a></li>
         </ul>  
       </nav>
+
     <div class="vanlig">
                 <h1>Natasha Tokerud</h1>
                 <p>Natasha er 30 år gammel og studerer en bachelorgrad innen IT og Datasystemer på UiA. Hun opprinnelig fra Australia og har fullført en norskkurs og studiespesielisering gjennom voksenopplæring. Hun har bodd i Norge om litt over 3 år. 
                   Før hun begynte på UiA hadde hun ingen tidligere koding erfaring, men nå har hun begynte å lære seg JavaScript, HTML og CSS, i tillegg til å lære pyret til å fullføre oppgavene. 
                   Drømmen hennes er å utvikle dataspill, og bruke kreativiteten sin til å løse problemer. </p>
-                <h2>FUNFACT!</h2>
                 <p>Hun har ikke reiste utenfor sørlandet</p>
+                <h2>Kreative Figurer</h2>
+                <p>Kreative figurer laget med canvas og SVG API.</p>
+      </div>
+    <div class="vanlig" id="drawing">
+      </div>
+    <div class="vanlig">
                 <h3>Klimafotavtrykk</h3>
                 <p>Klimafotavtrykk til Natasha kan estimeres ved hjelp av kalkulasjoner gjort av David MacKay i 2015. En typisk person i et industriland er summen av bruk av fly, oppvarming og nedkjøling, lys, "dingser", utslipp fra mat, landbruk og kunstgjørdsel, varer, varetransport og offentlige tjenester. 
                   I tillegg til en kalkulasjon av bil bruk [(distanse kjørt pr dag / distanse pr liter) * 10]. Natasha kjører ca. 30km pr dag, og bilen kjører ca. 10km pr liter drivstoff. Grafen viser klimafotavtrykk av Natasha. </p>
-            <img 
-            class="vanlig"
-            src="./Images/graf_klimafotavtrykk_natasha.png" 
-            alt="klimafotavtrykk graf"
-            />
+                <img 
+                 class="vanlig"
+                 src="./Images/graf_klimafotavtrykk_natasha.png" 
+                 alt="klimafotavtrykk graf"
+                 />
       </div>
-    <canvas id="canvasNatasha" width="150" height="200"></canvas>  
+
 </body>
+<script>
+  const drawing = document.getElementById("drawing");
+  function circle(radius, fillMode, color) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(200,200, radius, 0, 2 * Math.PI);
+      if (fillMode === "solid"){
+          ctx.fillStyle = color;
+          ctx.fill();
+      }
+      else if (fillMode === "outline"){
+          ctx.strokeStyle = color;
+          ctx.stroke();
+      }
+      else {
+          alert("Invalid fillMode");
+      }
+      drawing.appendChild(canvas);
+      return canvas;
+  }
+  function rectangle(width, height, fillMode, color) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      if (fillMode === "solid"){
+          ctx.fillStyle = color;
+          ctx.fillRect(200 - width/2, 200 - height/2, width, height);
+      }
+      else if (fillMode === "outline"){
+          ctx.strokeStyle = color;
+          ctx.strokeRect(200 - width/2, 200 - height/2, width, height);
+      }
+      else {
+          alert("Invalid fillMode");
+      }
+      drawing.appendChild(canvas);
+      return canvas;
+  }
+  function putImage(img1, x, y, img2){
+      drawing.innerHTML = "";
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img2, 0, 0);
+      ctx.drawImage(img1, x, y);
+      drawing.appendChild(canvas);
+      return canvas;
+  }
+  function rotate(angle, img){
+      drawing.innerHTML = "";
+      const canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      ctx.translate(200, 200);
+      ctx.rotate(angle * Math.PI / 180);
+      ctx.translate(-200, -200);
+      ctx.drawImage(img, 0, 0);
+      drawing.appendChild(canvas);
+      return canvas;
+  }
+  putImage(rectangle(100, 25, "solid", "green"), 0, -25, 
+  putImage(rectangle(75, 25, "solid", "green"), 0, -50, 
+  putImage(rectangle(50, 25, "solid", "green"), 0, -75, 
+  putImage(rectangle(25,25, "solid", "green"), 0, -100, rectangle(25, 50, "solid", "brown")))));
+  
+</script>
 </html>
