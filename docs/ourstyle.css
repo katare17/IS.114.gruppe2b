@@ -88,3 +88,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#drawing
+{width:400px;
+height:400px;}
