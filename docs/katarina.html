@@ -28,9 +28,14 @@
             undervisningsspråk. Programmeringen har vekket stor interesse og hun ser nå frem til å kunne jobbe med det etter oppnådd bachelorgrad.
             <br> <br>
         </p>
+        <p>Katarina har gjenskapt den kreative figuren sin ved bruk av Canvas API:</p>
         <div class="vanlig" id="drawing">
 
         </div>
+        <p>Hun har også gjenskapt figuren ved bruk av SVG API:</p>
+
+
+        <p>Her er et utklipp av Katarinas diagram fra klimafotavtrykksoppgaven:</p>
         <img class="diagram" src="./Images/katarina-diagram.png" alt="Diagram av klimafotavtrykk"/>
     </div>
 
@@ -100,15 +105,26 @@ function rotate(angle, img) {
     drawing.innerHTML = "";
     const canvas = document.createElement("canvas");
     canvas.width = 400;
-    canvas.width = 400;
+    canvas.height = 400;
     const ctx = canvas.getContext("2d");
     ctx.translate(200, 200);
     ctx.rotate(angle * Math.PI / 180);
     ctx.translate(-200, -200);
     ctx.drawImage(img, 0, 0);
     drawing.appendChild(canvas);
+    ctx.resetTransform();
     return canvas;
 }
+
+const bigCirc = circle(150, "outline", "white");
+const smallCirc = circle(144, "outline", "white");
+const smallRec = rectangle(2.5, 60, "solid", "white");
+const bigRec = rectangle(25, 130, "solid", "white");
+
+const circles = putImage(bigCirc, 0, 0, smallCirc);
+
+
+putImage(rotate(135, bigRec), 103, 106, putImage(rotate(115, smallRec), -10, -129, putImage(rotate(115, smallRec), -20, -149, putImage(circles, -49, -49, rectangle(400, 400, "solid", "rgb(36, 37, 38)")))));
 
 
 
