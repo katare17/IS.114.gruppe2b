@@ -43,6 +43,14 @@ body {
     color: white;
 }
 
+.diagram {
+    max-width: 500px; 
+    margin: 30px auto;
+    padding: 0px; 
+    /* width: 80%; */
+    justify-self: center;
+}
+
 .bilde {
     max-width: 450px;
     max-height: 200px;
