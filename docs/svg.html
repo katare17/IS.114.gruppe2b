@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I4</title>
+    <style>
+      #drawing {
+        border: 1px solid black;
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="drawing"></div>
+    <svg></svg>
+  </body>
+  <script>
+    const drawing = document.getElementById("drawing");
+
+    function circleSvg(radius, mode, color) {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
+      svg.setAttribute("viewBox", "0 0 400 400");
+      svg.setAttribute("width", "400px");
+      svg.setAttribute("height", "400px");
+
+      const circle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle"
+      );
+      circle.setAttribute("cx", 200);
+      circle.setAttribute("cy", 200);
+      circle.setAttribute("r", radius);
+
+      if (mode === "solid") {
+        circle.setAttribute("stroke-opacity", "0");
+        circle.setAttribute("fill", color);
+      } else if (mode === "outline") {
+        circle.setAttribute("fill-opacity", "0");
+        circle.setAttribute("stroke", color);
+      } else {
+        alert("Invalid mode");
+      }
+
+      // Append circle to svg
+      svg.appendChild(circle);
+      // Append to drawing
+      drawing.appendChild(svg);
+
+      // Return the svg element
+      return svg;
+    }
+
+    function rectangleSvg(width, height, mode, color) {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
+      svg.setAttribute("viewBox", "0 0 400 400");
+      svg.setAttribute("width", "400px");
+      svg.setAttribute("height", "400px");
+
+      const rectangle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "rect"
+      );
+    
+      rectangle.setAttribute("x", 200 - width/2);
+      rectangle.setAttribute("y", 200 - height/2);
+      rectangle.setAttribute("width", `${width}px`);
+      rectangle.setAttribute("height", `${height}px`);
+
+      if (mode === "solid") {
+        rectangle.setAttribute("stroke-opacity", "0");
+        rectangle.setAttribute("fill", color);
+      } else if (mode === "outline") {
+        rectangle.setAttribute("fill-opacity", "0");
+        rectangle.setAttribute("stroke", color);
+      } else {
+        alert("Invalid mode");
+      }
+
+      svg.appendChild(rectangle);
+      
+      drawing.appendChild(svg);
+
+      return svg;
+
+    }
+
+    function putImageSvg(image1, x, y, image2) {
+      // Clear drawing
+      drawing.innerHTML = "";
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
+      svg.setAttribute("viewBox", "0 0 400 400");
+      svg.setAttribute("width", "400px");
+      svg.setAttribute("height", "400px");
+
+      // Get all elements of image2:
+      let img2Nodes = image2.querySelectorAll("rect, circle");
+
+      // Loop through the img2Nodes, clone them and append them to svg.
+      for (let el of img2Nodes) {
+        let clonedNode = el.cloneNode();
+        svg.appendChild(clonedNode);
+      }
+
+      // Add first child from image 1
+      // Get the first image, and reposition it
+      let firstImage = image1.firstChild;
+
+      if (firstImage.nodeName === "circle") {
+        console.log(firstImage);
+        firstImage.setAttribute(
+          "cx",
+          parseFloat(firstImage.getAttribute("cx")) + x
+        );
+        firstImage.setAttribute(
+          "cy",
+          parseFloat(firstImage.getAttribute("cy")) + y
+        );
+      } else {
+        // It must be a rectanble
+        console.log("rect");
+      }
+
+      svg.appendChild(image1.firstChild);
+
+      // Add svg to drawing
+      drawing.appendChild(svg);
+
+      // Return svg
+      return svg;
+    }
+
+    //circleSvg(30, "solid", "red");
+    //rectangleSvg(50, 80, "solid", "green");
+
+    putImageSvg(
+      circleSvg(10, "solid", "yellow"),
+      20,
+      -10,
+      putImageSvg(
+        circleSvg(13, "solid", "black"),
+        0,
+        -50,
+        putImageSvg(
+          circleSvg(20, "outline", "blue"),
+          -30,
+          0,
+          putImageSvg(
+          circleSvg(50, "solid", "green"), -100, 0, rectangleSvg(120,150, "outline", "black")
+        )
+      )
+    ));
+  </script>
+</html>
