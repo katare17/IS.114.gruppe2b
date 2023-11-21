@@ -43,10 +43,48 @@ body {
     color: white;
 }
 
-#bilde {
+.diagram {
+    max-width: 500px; 
+    margin: 30px auto;
+    padding: 0px; 
+    /* width: 80%; */
+    justify-self: center;
+}
+
+.bilde {
     max-width: 450px;
+    max-height: 200px;
     margin: 30px auto;
     padding: 20px; 
-    width: 80%;
+    /* width: 80%; */
     justify-self: center;
+}
+
+.creative-figures{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-self: center;
+    justify-self: center;
+}
+
+@media (max-width: 1000px) {
+    .creative-figures{
+        grid-template-columns: 1fr 1fr;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .creative-figures{
+        grid-template-columns: 1fr;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.creative-figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
