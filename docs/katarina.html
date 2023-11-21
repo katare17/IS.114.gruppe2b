@@ -23,11 +23,94 @@
         <p>Katarina er 25 år gammel og student ved Universitetet i Agder. Hun studerer for å oppnå en bachelorgrad innen IT og informasjonssystemer. 
             I 2022 bestemte hun seg for at hun ønsket å utdanne seg innen IT, etter å ha blitt introdusert til programmeringsspråket ClojureScript. 
             Introduksjonen innebar å lage et multiple choice story-spill sammen med en bekjent seniorutvikler. 
-            <br>
+            <br> <br>
             I tiden etter har hun gjort seg kjent med html, CSS og JavaScript. Studiets eksamenskrav har gjort henne kjent med Pyret, et 
             undervisningsspråk. Programmeringen har vekket stor interesse og hun ser nå frem til å kunne jobbe med det etter oppnådd bachelorgrad.
+            <br> <br>
         </p>
+        <div class="vanlig" id="drawing">
+
+        </div>
         <img class="diagram" src="./Images/katarina-diagram.png" alt="Diagram av klimafotavtrykk"/>
     </div>
+
+
+
+
+
+
+
+
 </body>
+<script>
+    const drawing = document.getElementById("drawing");
+    function circle(radius, fillMode, color) {
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        const ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(200, 200, radius, 0, 2 * Math.PI);
+        if (fillMode === "solid") {
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+        else if (fillMode === "outline") {
+            ctx.strokeStyle = color;
+            ctx.stroke();
+        }
+        else {alert("Invalid fillMode")
+        }
+        drawing.appendChild(canvas); 
+        return canvas;
+    }
+
+    function rectangle(width, height, fillMode, color) {
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        const ctx = canvas.getContext("2d");
+        if (fillMode === "solid") {
+            ctx.fillStyle = color;
+            ctx.fillRect(200 - width / 2, 200 - height / 2, width, height);
+        }
+        else if (fillMode === "outline") {
+            ctx.strokeStyle = color;
+            ctx.strokeRect(200 - width /2, 200 - height / 2, width, height);
+        }
+        else {alert("Invalid fillMode")}
+        drawing.appendChild(canvas);
+        return canvas;
+    }
+
+    function putImage(img1, x, y, img2) {
+        drawing.innerHTML = "";
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img2, 0, 0);
+        ctx.drawImage(img1, x, y);
+        drawing.appendChild(canvas);
+        return canvas;
+    }
+    putImage(rectangle(5, 60, "solid", "white"), 40, -70, putImage(rectangle(5, 60, "solid", "white"), 50, -60, putImage(circle(150, "outline", "white"), 0, 0, circle(145, "outline", "white"))))
+
+function rotate(angle, img) {
+    drawing.innerHTML = "";
+    const canvas = document.createElement("canvas");
+    canvas.width = 400;
+    canvas.width = 400;
+    const ctx = canvas.getContext("2d");
+    ctx.translate(200, 200);
+    ctx.rotate(angle * Math.PI / 180);
+    ctx.translate(-200, -200);
+    ctx.drawImage(img, 0, 0);
+    drawing.appendChild(canvas);
+    return canvas;
+}
+
+
+
+</script>
 </html>
