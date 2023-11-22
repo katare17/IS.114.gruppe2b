@@ -64,9 +64,9 @@
         "http://www.w3.org/2000/svg",
         "rect"
       );
-    
-      rectangle.setAttribute("x", 200 - width/2);
-      rectangle.setAttribute("y", 200 - height/2);
+
+      rectangle.setAttribute("x", 200 - width / 2);
+      rectangle.setAttribute("y", 200 - height / 2);
       rectangle.setAttribute("width", `${width}px`);
       rectangle.setAttribute("height", `${height}px`);
 
@@ -81,11 +81,28 @@
       }
 
       svg.appendChild(rectangle);
-      
+
       drawing.appendChild(svg);
 
       return svg;
+    }
 
+    function rotate(angle, img) {
+      drawing.innerHTML = "";
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
+      svg.setAttribute("viewBox", "0 0 400 400");
+      svg.setAttribute("width", "400px");
+      svg.setAttribute("height", "400px");
+
+      let svgElement = img.firstChild;
+      if(svgElement.nodeName === "rect"){
+        svgElement.setAttribute("transform", `rotate(${angle}, ${200}, ${200 })`);
+        console.log(svgElement);
+      } 
+      svg.appendChild(svgElement);
+      drawing.appendChild(svg);
+      return svg;
     }
 
     function putImageSvg(image1, x, y, image2) {
@@ -111,7 +128,7 @@
       let firstImage = image1.firstChild;
 
       if (firstImage.nodeName === "circle") {
-        console.log(firstImage);
+        //console.log(firstImage);
         firstImage.setAttribute(
           "cx",
           parseFloat(firstImage.getAttribute("cx")) + x
@@ -122,7 +139,15 @@
         );
       } else {
         // It must be a rectanble
-        console.log("rect");
+        console.log(firstImage);
+        firstImage.setAttribute(
+          "x",
+          parseFloat(firstImage.getAttribute("x")) + x
+        );
+        firstImage.setAttribute(
+          "y",
+          parseFloat(firstImage.getAttribute("y")) + y
+        );
       }
 
       svg.appendChild(image1.firstChild);
@@ -135,24 +160,33 @@
     }
 
     //circleSvg(30, "solid", "red");
-    //rectangleSvg(50, 80, "solid", "green");
+    //rotate(90,rectangleSvg(50, 80, "solid", "green"));
 
     putImageSvg(
-      circleSvg(10, "solid", "yellow"),
+      rotate(-47, rectangleSvg(250, 300, "outline", "blue")),
       20,
-      -10,
+      0,
       putImageSvg(
-        circleSvg(13, "solid", "black"),
-        0,
-        -50,
+        circleSvg(10, "solid", "yellow"),
+        20,
+        -10,
         putImageSvg(
-          circleSvg(20, "outline", "blue"),
-          -30,
+          circleSvg(13, "solid", "black"),
           0,
+          -50,
           putImageSvg(
-          circleSvg(50, "solid", "green"), -100, 0, rectangleSvg(120,150, "outline", "black")
+            circleSvg(20, "outline", "blue"),
+            -30,
+            0,
+            putImageSvg(
+              circleSvg(50, "solid", "green"),
+              -100,
+              0,
+               rectangleSvg(120, 150, "outline", "black")
+            )
+          )
         )
       )
-    ));
+    );
   </script>
 </html>
