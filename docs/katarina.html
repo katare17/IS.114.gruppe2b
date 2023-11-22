@@ -28,105 +28,48 @@
             undervisningsspråk. Programmeringen har vekket stor interesse og hun ser nå frem til å kunne jobbe med det etter oppnådd bachelorgrad.
             <br> <br>
         </p>
-        <p>Katarina har gjenskapt den kreative figuren sin ved bruk av Canvas API:</p>
-        <div class="vanlig" id="drawing">
 
+        <p>Katarina har gjenskapt den kreative figuren sin ved bruk av Canvas API:</p>
+        
+        <div class="vanlig" id="drawing">
         </div>
+
         <p>Hun har også gjenskapt figuren ved bruk av SVG API:</p>
 
+        <div class="vanlig" id="drawingSvg">
+        </div>
 
         <p>Her er et utklipp av Katarinas diagram fra klimafotavtrykksoppgaven:</p>
         <img class="diagram" src="./Images/katarina-diagram.png" alt="Diagram av klimafotavtrykk"/>
     </div>
-
-
-
-
-
-
-
-
 </body>
-<script>
-    const drawing = document.getElementById("drawing");
-    function circle(radius, fillMode, color) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        ctx.beginPath();
-        ctx.arc(200, 200, radius, 0, 2 * Math.PI);
-        if (fillMode === "solid") {
-            ctx.fillStyle = color;
-            ctx.fill();
-        }
-        else if (fillMode === "outline") {
-            ctx.strokeStyle = color;
-            ctx.stroke();
-        }
-        else {alert("Invalid fillMode")
-        }
-        drawing.appendChild(canvas); 
-        return canvas;
-    }
 
-    function rectangle(width, height, fillMode, color) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        if (fillMode === "solid") {
-            ctx.fillStyle = color;
-            ctx.fillRect(200 - width / 2, 200 - height / 2, width, height);
-        }
-        else if (fillMode === "outline") {
-            ctx.strokeStyle = color;
-            ctx.strokeRect(200 - width /2, 200 - height / 2, width, height);
-        }
-        else {alert("Invalid fillMode")}
-        drawing.appendChild(canvas);
-        return canvas;
-    }
 
-    function putImage(img1, x, y, img2) {
-        drawing.innerHTML = "";
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img2, 0, 0);
-        ctx.drawImage(img1, x, y);
-        drawing.appendChild(canvas);
-        return canvas;
-    }
-    putImage(rectangle(5, 60, "solid", "white"), 40, -70, putImage(rectangle(5, 60, "solid", "white"), 50, -60, putImage(circle(150, "outline", "white"), 0, 0, circle(145, "outline", "white"))))
+<script type="module">
+    import { circle, rectangle, putImage, rotate, circleSvg, rectangleSvg, putImageSvg, rotateSvg  } from "./JS/figures.js";    
 
-function rotate(angle, img) {
-    drawing.innerHTML = "";
-    const canvas = document.createElement("canvas");
-    canvas.width = 400;
-    canvas.height = 400;
-    const ctx = canvas.getContext("2d");
-    ctx.translate(200, 200);
-    ctx.rotate(angle * Math.PI / 180);
-    ctx.translate(-200, -200);
-    ctx.drawImage(img, 0, 0);
-    drawing.appendChild(canvas);
-    ctx.resetTransform();
-    return canvas;
-}
-
+   
+/* Canvas definisjoner */
 const bigCirc = circle(150, "outline", "white");
 const smallCirc = circle(144, "outline", "white");
 const smallRec = rectangle(2.5, 60, "solid", "white");
 const bigRec = rectangle(25, 130, "solid", "white");
-
 const circles = putImage(bigCirc, 0, 0, smallCirc);
 
+/* Selve Canvas-tegningen */
+putImage(rotate(135, bigRec), 103, 106, 
+putImage(rotate(115, smallRec), -10, -129, 
+putImage(rotate(115, smallRec), -20, -149, 
+putImage(circles, -49, -49, rectangle(400, 400, "solid", "rgb(36, 37, 38)")))));
 
-putImage(rotate(135, bigRec), 103, 106, putImage(rotate(115, smallRec), -10, -129, putImage(rotate(115, smallRec), -20, -149, putImage(circles, -49, -49, rectangle(400, 400, "solid", "rgb(36, 37, 38)")))));
 
-
+/* Selve SVG-tegningen */
+putImageSvg(rotateSvg(135, rectangleSvg(25, 130, "solid", "white")), 0, -147, 
+putImageSvg(rotateSvg(115, rectangleSvg(2.5, 60, "solid", "white")), -110, 60, 
+putImageSvg(rotateSvg(115, rectangleSvg(2.5, 60, "solid", "white")), -125, 80, 
+putImageSvg(circleSvg(150, "outline", "white"), -49, -49, 
+putImageSvg(circleSvg(144, "outline", "white"), -49, -49, 
+rectangleSvg(400, 400, "solid", "rgb(36, 37, 38)"), 0, 0)))));
 
 </script>
 </html>
