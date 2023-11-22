@@ -34,79 +34,24 @@
    </div>
    
    <div class="vanlig" id="drawing">
+  </div>
+
+  <div class="vanlig" id="drawingSvg">
+  </div>
+
 
   </body> 
 
 
-</div>
 
-<script>
-    const drawing = document.getElementById("drawing");
-    function circle(radius, fillMode, color) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        ctx.beginPath();
-        ctx.arc(200,200, radius, 0, 2 * Math.PI);
-        if (fillMode === "solid"){
-            ctx.fillStyle = color;
-            ctx.fill();
-        }
-        else if (fillMode === "outline"){
-            ctx.strokeStyle = color;
-            ctx.stroke();
-        }
-        else {
-            alert("Invalid fillMode");
-        }
-        drawing.appendChild(canvas);
-        return canvas;
-    }
-    function rectangle(width, height, fillMode, color) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        if (fillMode === "solid"){
-            ctx.fillStyle = color;
-            ctx.fillRect(200 - width/2, 200 - height/2, width, height);
-        }
-        else if (fillMode === "outline"){
-            ctx.strokeStyle = color;
-            ctx.strokeRect(200 - width/2, 200 - height/2, width, height);
-        }
-        else {
-            alert("Invalid fillMode");
-        }
-        drawing.appendChild(canvas);
-        return canvas;
-    }
-    function putImage(img1, x, y, img2){
-        drawing.innerHTML = "";
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img2, 0, 0);
-        ctx.drawImage(img1, x, y);
-        drawing.appendChild(canvas);
-        return canvas;
-    }
-    function rotate(angle, img){
-        drawing.innerHTML = "";
-        const canvas = document.createElement("canvas");
-        canvas.width = 400;
-        canvas.height = 400;
-        const ctx = canvas.getContext("2d");
-        ctx.translate(200, 200);
-        ctx.rotate(angle * Math.PI / 180);
-        ctx.translate(-200, -200);
-        ctx.drawImage(img, 0, 0);
-        drawing.appendChild(canvas);
-        return canvas;
-    }
+<script type="module">
+     import { circle, rectangle, putImage, rotate, circleSvg, rectangleSvg, putImageSvg, rotateSvg  } from "./JS/figures.js";
+
+
+    
+    
     putImage(circle(15, "solid", "white"), -80, 59,  putImage(circle(15, "solid", "white"), -40, 59,   putImage(circle(15, "solid", "white"), 0, 0, putImage(rotate(45, rectangle(82, 82, "outline", "white")), -59, 59, putImage(rotate(45, rectangle(82, 82, "outline", "white")), 0, 0, putImage(rotate(45, rectangle(80, 80, "solid", "blue")), -59, 59, putImage(rotate(45, rectangle(80, 80, "solid", "red")), 0, 0, rectangle(400,400,"solid","rgb(36, 37, 38)"))))))));
+    putImageSvg(circleSvg(15, "solid", "white"), -80, 59,  putImageSvg(circleSvg(15, "solid", "white"), -40, 59,   putImageSvg(circleSvg(15, "solid", "white"), 0, 0, putImageSvg(rotateSvg(45, rectangleSvg(82, 82, "outline", "white")), 0, 82, putImageSvg(rotateSvg(45, rectangleSvg(82, 82, "outline", "white")), 0, 0, putImageSvg(rotateSvg(45, rectangleSvg(80, 80, "solid", "blue")), 0, 82, putImageSvg(rotateSvg(45, rectangleSvg(80, 80, "solid", "red")), 0, 0, rectangle(400,400,"solid","rgb(36, 37, 38)"))))))));
    
     
 </script>
