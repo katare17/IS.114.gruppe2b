@@ -80,6 +80,16 @@
         professional in the fields of education, multimedia, and technology.
       </p>
       <p><i>Source: Chat GPT & <a href="https://espenraugstad.no/resume.html" target="_blank">this</a>.</i></p>
+      <div id="drawing"></div>
+      <div id="drawingSvg"></div>
     </main>
   </body>
+  <script type="module">
+    import { circle, rectangle, putImage, rotate, circleSvg, rectangleSvg, putImageSvg, rotateSvg  } from "./JS/figures.js";
+    //Canvas
+    putImage(circle(30, "solid", "red"), 30, 50, rectangle(100, 150, "outline", "white"));
+
+    //Svg
+    putImageSvg(circleSvg(30, "solid", "red"), 30, 50, rectangleSvg(100, 150, "outline", "white"));
+  </script>
 </html>
