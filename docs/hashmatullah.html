@@ -25,7 +25,102 @@
           Han bestemte seg å studere IT og informasjonstemer etter å ha blitt introdusert  til  HTML og CSS i VG2 og Javascript i VG3 innen IT faget.
           Han liker i programmering og ser fram til å jobbe med dette etter utdanningen.
         </p>
-        
+        <h4> <a href="https://github.com/Botoon77/IndvdDel2/blob/main/BotoonOblig.arr" id="linkenMin">Github repo Hashmat</a></h4>
+        <p>Her er et utklipp av mitt diagram fra klimafotavtrykksoppgaven:</p>
+        <img class="diagram" src="./Images/hashmat-klima-diagram.png" alt="diagram av klimafotavtrykk"/>
+      
+      </div>
+      <p>Canvas</p>
+      <div class="vanlig" id="drawing"> 
+      </div>
+      <p>SVG</p>
+      <div class="vanlig" id="drawingSvg">
+      </div>
+      
+      
       </div>
 </body>
+
+
+</div>
+<div class="vanlig" id="drawing"> 
+</div>
+<div class="vanlig" id="drawingSvg">
+</div>
+
+
+<script type="module">
+import { circle, putImage, rectangle, rotate, circleSvg, putImageSvg, rectangleSvg,rotateSvg } from "./JS/figures.js";
+
+
+const bigCirc = circle(15, "outline", "white");
+const penBoxRec = rectangle(60, 100, "outline", "white");
+const smallBoxRec = rectangle(25, 70, "outline", "white");
+const bigGreenRec = rectangle(300, 200, "solid", "green");
+const bigWhiteRec = rectangle(280, 180, "outline", "white");
+const penSpot =circle(3, "solid", "white");
+const halfWhiteRec = rectangle(140, 180, "outline", "white");
+const coverupRec = rectangle(20, 50, "solid", "green");    
+
+//middle circle
+putImage(bigCirc, 0, 0,
+//halfline
+putImage(halfWhiteRec, 70, 0,
+//pitch border
+putImage(bigWhiteRec, 0, 0,
+//small box
+putImage(smallBoxRec, -127, 0,
+putImage(smallBoxRec, 127, 0,
+//pen spots
+putImage(penSpot, -100, 0,
+putImage(penSpot, 100, 0,
+//big box
+putImage(penBoxRec, -110, 0,
+putImage(penBoxRec, 110, 0,
+//kickoff point
+putImage(penSpot, 0, 0,
+//overlap circle 
+putImage(coverupRec, -90, 0,
+putImage(coverupRec, 90, 0,
+//half Circles
+putImage(bigCirc, 85, 0,
+putImage(bigCirc, -85, 0,
+
+// The pitch
+bigGreenRec))))))))))))));
+
+
+//*****SVG*****///
+const bigGreenRecSvg = rectangleSvg(300, 200, "solid", "green");
+
+//middle circle
+putImageSvg(circleSvg(15, "outline", "white"), 0, 0,
+//halfline
+putImageSvg(rectangleSvg(140, 180, "outline", "white"), 70, 0,
+//pitch border
+putImageSvg(rectangleSvg(280, 180, "outline", "white"), 0, 0,
+//small box
+
+putImageSvg(rectangleSvg(25, 70, "outline", "white"), -127, 0,
+putImageSvg(rectangleSvg(25, 70, "outline", "white"), 127, 0,
+
+//pen spots
+putImageSvg(circleSvg(3, "solid", "white"), -100, 0,
+putImageSvg(circleSvg(3, "solid", "white"), 100, 0,
+//big box
+putImageSvg(rectangleSvg(60, 100, "outline", "white"), -110, 0,
+putImageSvg(rectangleSvg(60, 100, "outline", "white"), 110, 0,
+//kickoff point
+putImageSvg(circleSvg(3, "solid", "white"), 0, 0,
+//overlap circle 
+putImageSvg(rectangleSvg(20, 50, "solid", "green"), -90, 0,
+putImageSvg(rectangleSvg(20, 50, "solid", "green"), 90, 0,
+//half Circles
+putImageSvg(circleSvg(15, "outline", "white"), 85, 0,
+putImageSvg(circleSvg(15, "outline", "white"), -85, 0,
+// The pitch
+bigGreenRecSvg))))))))))))));
+
+</script>
+
 </html>
