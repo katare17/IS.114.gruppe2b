@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Espen</title>
-    <link rel="stylesheet" href="./CSS/ourstyle.css">
+    <link rel="stylesheet" href="./CSS/ourstyle.css" />
   </head>
   <body>
     <nav class="menu">
@@ -16,7 +16,7 @@
         <li><a href="hassan.html">Hassan</a></li>
         <li><a href="hashmatullah.html">Hashmatullah</a></li>
         <li><a href="natasha.html">Natasha</a></li>
-      </ul>  
+      </ul>
     </nav>
     <main class="vanlig">
       <h1>Espen Raugstad</h1>
@@ -79,17 +79,16 @@
         set, and practical experience, making him a well-rounded and capable
         professional in the fields of education, multimedia, and technology.
       </p>
-      <p><i>Source: Chat GPT & <a href="https://espenraugstad.no/resume.html" target="_blank">this</a>.</i></p>
+      <p>
+        <i
+          >Source: Chat GPT &
+          <a href="https://espenraugstad.no/resume.html" target="_blank">this</a
+          >.</i
+        >
+      </p>
       <div id="drawing"></div>
       <div id="drawingSvg"></div>
     </main>
   </body>
-  <script type="module">
-    import { circle, rectangle, putImage, rotate, circleSvg, rectangleSvg, putImageSvg, rotateSvg  } from "./JS/figures.js";
-    //Canvas
-    putImage(circle(30, "solid", "red"), 30, 50, rectangle(100, 150, "outline", "white"));
-
-    //Svg
-    putImageSvg(circleSvg(30, "solid", "red"), 30, 50, rectangleSvg(100, 150, "outline", "white"));
-  </script>
+  <script src="./JS/espen.js" type="module"></script>
 </html>
