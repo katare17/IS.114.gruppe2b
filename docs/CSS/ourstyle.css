@@ -92,3 +92,8 @@ body {
 #drawing
 {width:400px;
 height:400px;}
+
+#linkenMin {
+    font-style: italic;
+    color:#3f705e;
+}
