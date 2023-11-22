@@ -13,26 +13,24 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="katarina.html">Katarina</a></li>
           <li><a href="espen.html">Espen</a></li>
-          <li><a class="active" href="christian.html">Christian</a></li>
+          <li><a href="christian.html">Christian</a></li>
           <li><a href="hassan.html">Hassan</a></li>
-          <li><a href="hashmatullah.html">Hashmatullah</a></li>
+          <li><a class="active" href="hashmatullah.html">Hashmatullah</a></li>
           <li><a href="natasha.html">Natasha</a></li>
         </ul>  
       </nav>
-      <div class= "vanlig">
-        <h2>Christian Portforljo</h2>
-        <p1>
-          Christian studerer ved UiA og er 20 år gammel. 
-          Han sin holding til koding er gankse bra ettersom han har hatt litt erfaring 
-          koding fra før. Han fikk første PC når han gikk på vgs og alt han lærte 
-          etter det var på egenhånd i både koding og IT generelt.
-          Han har ikke drevet med noe spesielt mye koding men endret et 
-          par filer og litt sånn forskjellige programmer fra github for at de 
-          skal fungere litt annerledes. Målet med bachelor i IT er enten 
-          master i Cybersikkerhet eller kanskje finne en jobb. En fun fact om
-          Christian er at han er under utvikling til å bli en av de hippie 
-          utviklerne med langt skjegg som drikker kaffe hele tiden. 
-        </p1>
+      <div class="vanlig">
+        <h1>Christian</h1>
+        <p1>Christian studerer ved UiA og er 20 år gammel. 
+        Han sin holding til koding er gankse bra ettersom han har hatt litt erfaring 
+        koding fra før. Han fikk første PC når han gikk på vgs og alt han lærte 
+        etter det var på egenhånd i både koding og IT generelt.
+        Han har ikke drevet med noe spesielt mye koding men endret et 
+        par filer og litt sånn forskjellige programmer fra github for at de 
+        skal fungere litt annerledes. Målet med bachelor i IT er enten 
+        master i Cybersikkerhet eller kanskje finne en jobb. En fun fact om
+        Christian er at han er under utvikling til å bli en av de hippie 
+        utviklerne med langt skjegg som drikker kaffe hele tiden. </p1>
         <h3>Klimafotavtrykk</h3>
         <p2>Her skal jeg forklare forkortelsene og litt om tabellen generelt
           <a>
@@ -43,12 +41,47 @@
             <li>dingser</li>
             <li>mlk: forkortelse av mat, landbruk og kunstgjødsel</li>
             <li>Varer: foregår i 4 faser, først å finne og bearbeide råmaterialer,
-                     andre er produksjon, tredje er bruk og fjerde er deponering</li>
+                andre er produksjon, tredje er bruk og fjerde er deponering</li>
             <li>varetransport</li>
             <li>offtjen: er forkortet for offentige tjenester som ambulanse og brannvesen</li>
           </a>
-        </p2>
-      <h2>Her er koden til den kreative figuren fra pyret (på egen github repo)</h2>
-      <a href="https://github.com/Christiata/IND-Repository/blob/4191975188e284e83e7e3c75639150cb7b0eb7fb/IS114/kreativ%20figur%20pyret%20kode>Kretiv Figur</a>
-      <img id="bilde" src="../Images/Pyret-figur-christian.png" alt="Fancy bear"/>
-</html>
+          <h3>Energiforbruk:</h3>
+          <p>Christian bruker gjennsomsnittelig energiforbruk som demonstrert av 
+            David MacKay ved de variabelene som er listet ovenfor og i tabellen.</p>
+          <img src="../Images/christian-tabell.png" alt="Tabell">
+          <h3>Link til pyret figur (indi repo):</h3>
+          <a href="https://github.com/Christiata/IND-Repository/blob/795d30ec426e017d4c3941133296686a73669064/IS114/kreativ%20figur%20pyret%20kode">Christiata</a>
+          <h3>Canvas API figur:</h3>
+      </div>
+
+</body>
+<div class="vanlig" id="drawing">
+  <h3>Canvas figur</h3>
+</div>
+
+<div class="vanlig" id="drawingSvg">
+  <h3>SVG figur</h3>
+</div>
+<script type="module">
+  import { circle, rectangle, putImage, rotate, circleSvg, rectangleSvg, putImageSvg, rotateSvg  } from "./JS/figures.js";
+  //Canvas
+  putImage(circle(15, "solid", "white"), -40, 20, 
+ putImage(circle(15, "solid", "white"), -80, 20, 
+  putImage(rectangle(70, 10, "solid", "black"), -60, 60, 
+  putImage(rectangle(100, 100, "solid", "skyblue"), -60, 30, 
+ putImage(rectangle(40, 10, "solid", "skyblue"), -120, 0, rectangle(40, 10, "solid", "skyblue"))))));
+
+//SVG
+putImageSvg(circleSvg(15, "solid", "white"), -40, 20, 
+ putImageSvg(circleSvg(15, "solid", "white"), -80, 20, 
+  putImageSvg(rectangleSvg(70, 10, "solid", "black"), -60, 60, 
+  putImageSvg(rectangleSvg(100, 100, "solid", "skyblue"), -60, 30, 
+ putImageSvg(rectangleSvg(40, 10, "solid", "skyblue"), -120, 0, rectangleSvg(40, 10, "solid", "skyblue"))))));
+
+</script>
+
+
+
+
+
+
