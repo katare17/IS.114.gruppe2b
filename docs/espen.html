@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Espen</title>
     <link rel="stylesheet" href="./CSS/ourstyle.css" />
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js "></script>
   </head>
+
   <body>
     <nav class="menu">
       <ul class="menu-list">
@@ -20,74 +22,80 @@
     </nav>
     <main class="vanlig">
       <h1>Espen Raugstad</h1>
-      <p>
-        Espen is a highly accomplished and versatile professional with a strong
-        background in education, multimedia, and technology. He has a Master's
-        degree in Multimedia and Educational Technology from the University of
-        Agder, specializing in e-learning pedagogy, interaction design, VR/AR,
-        and 3D visualization. His Bachelor's degree in Multimedia Technology and
-        Design, also from the University of Agder, equipped him with skills in
-        programming (JavaScript), web publishing, graphic design, photography,
-        video, sound, 3D modeling and animation, as well as app development
-        using Node/Express.
+      <div>
+        <label for="langSel" data-lang-id = "selectLanguage" class="trans">Select Language: </label>
+        <select id="langSel">
+          <option value="en" data-lang-id = "en" class="trans">English</option>
+          <option value="no" data-lang-id = "no" class="trans"  >Norwegian</option>
+        </select>
+      </div>
+
+      <h2 class="trans" data-lang-id="about">About Espen</h2>
+      <p class="trans" data-lang-id="aboutP">
+        Espen is 41 years old, and currently a student at the one-year program
+        in IT and information systems at the University of Agder. He previously
+        holds Master's degrees in multimedia and educational technology, as well
+        as theoretical physics. These studies, in combination with work
+        experiences such as being a high school teacher, a teaching assistent,
+        and mentoring students, Espen has a long and varied background in
+        programming.
       </p>
-      <p>
-        With a solid educational foundation, he has valuable work experience in
-        various roles. As a Student Assistant in App Development at the
-        University of Agder, he assisted with lab work for the App Development
-        class, where students learned to develop apps with Node and Express. He
-        also served as the Head Student FYSE Coach for Multimedia, contributing
-        to the First Year Study Environment project by guiding new students and
-        fostering a positive learning environment. Additionally, his role as an
-        AV Equipment Loan Assistant involved managing audio-visual equipment for
-        students and staff at the Multimedia department. In a previous role as a
-        Student Assistant in Introductory Physics, he served as a teaching
-        assistant for physics classes.
+
+      <h2 class="trans" data-lang-id="creative">Creative Figure</h2>
+      <p class="trans" data-lang-id="creativeP">
+        Part of the course IS-114 - Introduction to co-creation in Information
+        Systems, is introduction to programming. For this introduction, the
+        programming language Pyret was first used, followed by JavaScript. In
+        Pyret, the students made a "creative figure", a composition of which can
+        be found on the home page. This figure then had to be recreated in
+        JavaScript using both the Canvas API and the Svg API, although it had to
+        be done by making functions that mimic those of Pyret. The two JavaScript
+        versions are shown below in Figures 1 and 2.
       </p>
-      <p>
-        Prior to his roles at the University of Agder, Espen worked as a high
-        school teacher at Dalane Videregående Skole, teaching math and physics
-        at various levels. He held the position of Class Teacher from 2009 to
-        2011, showcasing leadership skills.
+
+      <div class="vanlig" id="drawing"></div>
+      <div class="vanlig trans" data-lang-id="fig1">
+        Figure 1: Recreation of the creative figure with the Canvas API.
+      </div>
+      <div class="vanlig" id="drawingSvg"></div>
+      <div class="vanlig trans" data-lang-id="fig2">
+        Figure 2: Recreation of the creative figure with the Svg API.
+      </div>
+      <p></p>
+      <h2 class="trans" data-lang-id="climate">Climate Foot Print</h2>
+      <p class="trans" data-lang-id="climateP">
+        One of the assignments for the course involved graphical representation
+        of the daily energy consumption for an individual. For the assignment
+        itself, the data was loaded from a spreadsheet into Pyret where it was
+        processed and displayed. Here, we present the data directly from the
+        source.
       </p>
-      <p>
-        His educational journey includes further studies in General Science for
-        Teachers at the Norwegian University of Science and Technology and the
-        University of Tromsø. He also completed Practical Pedagogical Education
-        (PPU) at the University of Bergen, specializing in math and physics
-        education. Espen earned a Master's degree in Theoretical Physics from
-        the University of Oslo, focusing on astrophysics, cosmology, and general
-        relativity.
+      <div id="chartDiv"></div>
+      <!-- <canvas id="chart"></canvas> -->
+      <p></p>
+      <div class="vanlig">
+        <p>
+          Figure 3: Graphical representation of a person's daily energy
+          consumption. (<a
+            href="https://www.withouthotair.com/c18/page_103.shtml"
+            target="_blank"
+            >Source.</a
+          >)
+        </p>
+      </div>
+      <p></p>
+      <h2 class="trans" data-lang-id="further">Further Work</h2>
+      <p class="trans" data-lang-id="furtherP">
+        The code for the other coding assignments can be found in Espen's own
+        repository. This can be found here:
       </p>
-      <p>
-        Outside of his academic and professional pursuits, he has engaged in
-        extracurricular activities, such as serving as the Treasurer for
-        Grimstad Studentsamfunn at the University of Agder, overseeing
-        budgeting, accounting, and general finances. He also held a leadership
-        position as the Leader for Pixel, the student association for
-        multimedia, showcasing his ability to manage responsibilities and lead
-        teams.
-      </p>
-      <p>
-        In terms of language proficiency, he is a native Norwegian speaker and
-        fluent in English (written and spoken). His technical skills include
-        proficiency in MS Office, Adobe CC (Photoshop, Illustrator, InDesign,
-        PremierePro, AfterEffects), Figma, HTML/CSS/JavaScript, LaTeX, GeoGebra,
-        and some knowledge of Python, PHP, Java, C++, and Matlab. He is also
-        familiar with operating systems such as Windows, OS X, and Linux.
-        Overall, Espen combines a strong educational background, diverse skill
-        set, and practical experience, making him a well-rounded and capable
-        professional in the fields of education, multimedia, and technology.
-      </p>
-      <p>
-        <i
-          >Source: Chat GPT &
-          <a href="https://espenraugstad.no/resume.html" target="_blank">this</a
-          >.</i
-        >
-      </p>
-      <div id="drawing"></div>
-      <div id="drawingSvg"></div>
+      <a
+        href="https://github.com/espenraugstad/IS-114-Personal"
+        class="vanlig"
+        id="linkenMin"
+        >https://github.com/espenraugstad/IS-114-Personal</a
+      >
+      <p></p>
     </main>
   </body>
   <script src="./JS/espen.js" type="module"></script>
