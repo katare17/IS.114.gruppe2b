@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I4</title>
     <style>
-      #drawing {
+      #drawingSvg {
         border: 1px solid black;
         width: 400px;
         height: 400px;
@@ -13,11 +13,11 @@
     </style>
   </head>
   <body>
-    <div id="drawing"></div>
+    <div id="drawingSvg"></div>
     <svg></svg>
   </body>
   <script>
-    const drawing = document.getElementById("drawing");
+    const drawingSvg = document.getElementById("drawingSvg");
 
     function circleSvg(radius, mode, color) {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -47,7 +47,7 @@
       // Append circle to svg
       svg.appendChild(circle);
       // Append to drawing
-      drawing.appendChild(svg);
+      drawingSvg.appendChild(svg);
 
       // Return the svg element
       return svg;
@@ -82,13 +82,13 @@
 
       svg.appendChild(rectangle);
 
-      drawing.appendChild(svg);
+      drawingSvg.appendChild(svg);
 
       return svg;
     }
 
     function rotate(angle, img) {
-      drawing.innerHTML = "";
+      drawingSvg.innerHTML = "";
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
       svg.setAttribute("viewBox", "0 0 400 400");
@@ -101,13 +101,13 @@
         console.log(svgElement);
       } 
       svg.appendChild(svgElement);
-      drawing.appendChild(svg);
+      drawingSvg.appendChild(svg);
       return svg;
     }
 
     function putImageSvg(image1, x, y, image2) {
       // Clear drawing
-      drawing.innerHTML = "";
+      drawingSvg.innerHTML = "";
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.setAttribute("xmlns:link", "http://www.w3.org/2000/svg");
       svg.setAttribute("viewBox", "0 0 400 400");
@@ -153,7 +153,7 @@
       svg.appendChild(image1.firstChild);
 
       // Add svg to drawing
-      drawing.appendChild(svg);
+      drawingSvg.appendChild(svg);
 
       // Return svg
       return svg;
